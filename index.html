@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Kyabazinga College Kamuli</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #172033;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #071b3a;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, .2);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #d9a441;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #071b3a;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .logo h2 {
+      font-size: 18px;
+    }
+
+    .logo small {
+      color: #d9a441;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: #d9a441;
+    }
+
+    .menu {
+      display: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO SLIDESHOW — fully scrollable on phone */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 100px 20px 50px;
+      overflow: hidden;
+      isolation: isolate;
+      width: 100%;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.2s ease, transform 10s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(rgba(3, 19, 43, .55), rgba(3, 19, 43, .88));
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    .hero-caption {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 9px 18px;
+      border-radius: 30px;
+      background: #d9a441;
+      color: #071b3a;
+      font-weight: bold;
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .hero-dot {
+      width: 11px;
+      height: 11px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .hero-dot.active {
+      background: #d9a441;
+      border-color: #d9a441;
+    }
+
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(7, 27, 58, .65);
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .hero-arrow:hover {
+      background: #d9a441;
+      color: #071b3a;
+    }
+
+    .hero-prev {
+      left: 15px;
+    }
+
+    .hero-next {
+      right: 15px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+
+    .hero h2 {
+      color: #d9a441;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: #d9a441;
+      color: #071b3a;
+    }
+
+    .btn-blue {
+      background: #071b3a;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* GENERAL */
+    section {
+      padding: 80px 20px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      color: #071b3a;
+    }
+
+    .section-title span {
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #d9a441;
+      margin: 12px auto;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      color: #071b3a;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .info-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .info-box {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .08);
+    }
+
+    .info-box h4 {
+      color: #071b3a;
+      margin-bottom: 8px;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #071b3a;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* ACADEMICS */
+    .academic {
+      background: #071b3a;
+      color: white;
+    }
+
+    .academic .section-title h2 {
+      color: white;
+    }
+
+    .academic-card {
+      background: white;
+      color: #172033;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .academic-card h3 {
+      color: #071b3a;
+      margin-bottom: 15px;
+    }
+
+    .academic-card ul {
+      list-style: none;
+    }
+
+    .academic-card li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* ADMISSIONS */
+    .admission {
+      background: white;
+    }
+
+    .form {
+      max-width: 800px;
+      margin: auto;
+      background: #f5f7fa;
+      padding: 35px;
+      border-radius: 15px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full {
+      grid-column: 1/-1;
+    }
+
+    label {
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 13px;
+      border: 1px solid #ccd2da;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+      width: 100%;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #d9a441;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* NEWS */
+    .news-card {
+      overflow: hidden;
+      padding: 0;
+      text-align: left;
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .news-content {
+      padding: 22px;
+    }
+
+    .news-content small {
+      color: #d9a441;
+      font-weight: bold;
+    }
+
+    .news-content p {
+      margin-top: 10px;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.04);
+    }
+
+    /* PORTAL */
+    .portal {
+      background: #eef2f7;
+    }
+
+    .portal-box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+    }
+
+    .portal-box input {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .portal-message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    /* CONTACT */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      background: #071b3a;
+      color: white;
+      padding: 35px;
+      border-radius: 15px;
+    }
+
+    .contact-info h3 {
+      color: #d9a441;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 18px 0;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    /* ADMIN */
+    .admin {
+      background: #111827;
+      color: white;
+    }
+
+    .admin .section-title h2 {
+      color: white;
+    }
+
+    .admin-login {
+      max-width: 450px;
+      margin: auto;
+      background: #1f2937;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .admin-login input {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .dashboard {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      background: #263244;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat h2 {
+      color: #d9a441;
+      font-size: 35px;
+    }
+
+    .logout {
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #030d1d;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer strong {
+      color: #d9a441;
+    }
+
+    .social {
+      margin: 15px;
+      font-size: 25px;
+    }
+
+    .social a {
+      color: white;
+      margin: 8px;
+      text-decoration: none;
+    }
+
+    /* SEARCH */
+    .search-area {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      display: flex;
+    }
+
+    .search-area input {
+      flex: 1;
+      border-radius: 7px 0 0 7px;
+    }
+
+    .search-area button {
+      border: 0;
+      background: #d9a441;
+      padding: 0 20px;
+      cursor: pointer;
+      border-radius: 0 7px 7px 0;
+      font-weight: bold;
+    }
+
+    /* BACK TOP */
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: 0;
+      border-radius: 50%;
+      background: #d9a441;
+      color: #071b3a;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #071b3a;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .about,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+      }
+
+      .hero-prev {
+        left: 10px;
+      }
+      .hero-next {
+        right: 10px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      section {
+        padding: 60px 15px;
+      }
+
+      .hero {
+        padding: 90px 15px 40px;
+        min-height: 100vh;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero h2 {
+        font-size: 20px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cards,
+      .gallery,
+      .info-boxes,
+      .form-grid,
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .navbar {
+        padding: 0 12px;
+      }
+
+      .hero-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+      }
+
+      .hero-prev {
+        left: 6px;
+      }
+      .hero-next {
+        right: 6px;
+      }
+
+      .hero-dots {
+        bottom: 12px;
+        gap: 8px;
+      }
+
+      .hero-dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      .btn {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
+
+      .logo h2 {
+        font-size: 15px;
+      }
+      .logo small {
+        font-size: 12px;
+      }
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+      .about-text h3 {
+        font-size: 24px;
+      }
+
+      .contact-info {
+        padding: 25px;
+      }
+      .contact-form {
+        padding: 20px;
+      }
+    }
+
+    @media(max-width: 380px) {
+      .hero h1 {
+        font-size: 24px;
+      }
+      .hero h2 {
+        font-size: 17px;
+      }
+      .hero p {
+        font-size: 14px;
+      }
+      .hero-caption {
+        font-size: 13px;
+        padding: 6px 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-circle"><img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/9e7d9ae7aeab84cc2d9636e42efe29df~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=83915223&x-expires=1788429600&x-signature=GWBHxsCRKYQlFpo%2FKU1uTHlqcu8%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2" alt="logo"></div>
+        <div>
+          <h2>Kyabazinga College</h2>
+          <small>Kamuli</small>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#portal">Portal</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#admin">Admin</a></li>
+      </ul>
+      <div class="menu" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <!-- HERO SLIDESHOW (fully scrollable) -->
+  <section class="hero" id="home">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1800&q=85')" data-caption="Students & Teachers"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1800&q=85')" data-caption="School Sick Bay"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85')" data-caption="Staff Room & Teamwork"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85')" data-caption="Our School Campus"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1800&q=85')" data-caption="School Environment"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <button class="hero-arrow hero-prev" type="button" onclick="changeHeroSlide(-1)" aria-label="Previous slide">‹</button>
+    <button class="hero-arrow hero-next" type="button" onclick="changeHeroSlide(1)" aria-label="Next slide">›</button>
+
+    <div class="hero-content">
+      <div class="hero-caption" id="heroCaption">Students & Teachers</div>
+      <h1>KYABAZINGA COLLEGE KAMULI</h1>
+      <h2>"Educated and Cultured"</h2>
+      <p>Welcome to Kyabazinga College Kamuli, where education, discipline, leadership, talent and culture come together to prepare learners for a successful future.</p>
+      <a href="#admissions" class="btn btn-gold">Apply Now</a>
+      <a href="#about" class="btn btn-blue">Explore School</a>
+    </div>
+
+    <div class="hero-dots">
+      <button class="hero-dot active" onclick="goToHeroSlide(0)" aria-label="Slide 1"></button>
+      <button class="hero-dot" onclick="goToHeroSlide(1)" aria-label="Slide 2"></button>
+      <button class="hero-dot" onclick="goToHeroSlide(2)" aria-label="Slide 3"></button>
+      <button class="hero-dot" onclick="goToHeroSlide(3)" aria-label="Slide 4"></button>
+      <button class="hero-dot" onclick="goToHeroSlide(4)" aria-label="Slide 5"></button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Our School</h2>
+        <span></span>
+      </div>
+      <div class="about">
+        <img src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=80" alt="school">
+        <div class="about-text">
+          <h3>Welcome to Kyabazinga College Kamuli</h3>
+          <p>Kyabazinga College Kamuli is committed to providing quality education while nurturing discipline, leadership, talent, creativity and cultural values.</p>
+          <p>Our goal is to create an environment where every learner can discover their abilities, develop confidence and prepare for higher education and responsible citizenship.</p>
+          <div class="info-boxes">
+            <div class="info-box"><h4>Education</h4><p>Quality learning</p></div>
+            <div class="info-box"><h4>Culture</h4><p>Values & identity</p></div>
+            <div class="info-box"><h4>Discipline</h4><p>Responsible learners</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose Us?</h2>
+        <span></span>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="icon">📚</div><h3>Quality Education</h3><p>Learners are supported through structured academic programmes and dedicated teaching.</p></div>
+        <div class="card"><div class="icon">🏆</div><h3>Excellence</h3><p>We encourage learners to pursue excellence in academics, sports, leadership and talents.</p></div>
+        <div class="card"><div class="icon">👨‍🏫</div><h3>Dedicated Teachers</h3><p>Teachers guide learners academically and help them develop important life skills.</p></div>
+        <div class="card"><div class="icon">⚽</div><h3>Sports</h3><p>Students can participate in sports and other co-curricular activities.</p></div>
+        <div class="card"><div class="icon">💻</div><h3>ICT</h3><p>Technology and digital skills help learners prepare for the modern world.</p></div>
+        <div class="card"><div class="icon">🎭</div><h3>Talent Development</h3><p>Music, drama, debate, clubs and other activities help students discover their talents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMICS -->
+  <section class="academic" id="academics">
+    <div class="container">
+      <div class="section-title">
+        <h2>Academic Programmes</h2>
+        <span></span>
+      </div>
+      <div class="cards">
+        <div class="academic-card"><h3>O-Level</h3><ul><li>Senior One</li><li>Senior Two</li><li>Senior Three</li><li>Senior Four</li><li>UCE Preparation</li></ul></div>
+        <div class="academic-card"><h3>A-Level</h3><ul><li>Senior Five</li><li>Senior Six</li><li>Arts Programmes</li><li>Science Programmes</li><li>UACE Preparation</li></ul></div>
+        <div class="academic-card"><h3>Co-Curricular</h3><ul><li>Football</li><li>Athletics</li><li>Music</li><li>Drama</li><li>Debate & Clubs</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS -->
+  <section class="admission" id="admissions">
+    <div class="container">
+      <div class="section-title">
+        <h2>Online Admission</h2>
+        <span></span>
+        <p>Fill in the form below to submit an admission request.</p>
+      </div>
+      <form class="form" id="admissionForm">
+        <div class="form-grid">
+          <div class="form-group"><label>Student Name</label><input type="text" id="studentName" required></div>
+          <div class="form-group"><label>Date of Birth</label><input type="date" required></div>
+          <div class="form-group"><label>Gender</label><select required><option value="">Select Gender</option><option>Male</option><option>Female</option></select></div>
+          <div class="form-group"><label>Class Applying For</label><select required><option value="">Select Class</option><option>Senior One</option><option>Senior Two</option><option>Senior Three</option><option>Senior Four</option><option>Senior Five</option><option>Senior Six</option></select></div>
+          <div class="form-group"><label>Previous School</label><input type="text" required></div>
+          <div class="form-group"><label>Parent/Guardian Name</label><input type="text" required></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+256..." required></div>
+          <div class="form-group"><label>Email</label><input type="email"></div>
+          <div class="form-group full"><label>Additional Information</label><textarea></textarea></div>
+        </div>
+        <button class="btn btn-gold" type="submit">Submit Application</button>
+        <p id="admissionMessage"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="container">
+      <div class="section-title">
+        <h2>School News & Events</h2>
+        <span></span>
+      </div>
+      <div class="search-area">
+        <input type="text" id="newsSearch" placeholder="Search school news...">
+        <button onclick="searchNews()">Search</button>
+      </div>
+      <div class="cards" id="newsContainer">
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="academics">
+          <div class="news-content"><small>ACADEMICS</small><h3>Academic Excellence</h3><p>Follow school academic activities, examinations and learner achievements.</p></div>
+        </div>
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" alt="sports">
+          <div class="news-content"><small>SPORTS</small><h3>Sports Activities</h3><p>Students participate in various sporting activities and competitions.</p></div>
+        </div>
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80" alt="students">
+          <div class="news-content"><small>STUDENTS</small><h3>Student Development</h3><p>Discover activities that encourage leadership, creativity and personal development.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>School Gallery</h2>
+        <span></span>
+      </div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" alt="gallery1">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="gallery2">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="gallery3">
+        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=800&q=80" alt="gallery4">
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="gallery5">
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=800&q=80" alt="gallery6">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="gallery7">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80" alt="gallery8">
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAL -->
+  <section class="portal" id="portal">
+    <div class="container">
+      <div class="section-title">
+        <h2>Student & Parent Portal</h2>
+        <span></span>
+      </div>
+      <div class="portal-box">
+        <h3>Portal Login</h3><br>
+        <input type="text" id="portalUser" placeholder="Student ID / Parent ID">
+        <input type="password" id="portalPassword" placeholder="Password">
+        <button class="btn btn-gold" onclick="portalLogin()">Login</button>
+        <p class="portal-message" id="portalMessage"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <span></span>
+      </div>
+      <div class="contact">
+        <div class="contact-info">
+          <h3>Kyabazinga College Kamuli</h3>
+          <p>📍 Kamuli District, Uganda</p>
+          <p>📮 P.O. Box 256, Kamuli</p>
+          <p>📞 +256 775 015100</p>
+          <p>📧 info@kyabazingacollege.ac.ug</p>
+          <p>For admissions, school information and other enquiries, please contact the school administration.</p>
+        </div>
+        <div class="contact-form">
+          <h3>Send Us a Message</h3><br>
+          <input type="text" id="contactName" placeholder="Your Name">
+          <input type="email" id="contactEmail" placeholder="Your Email">
+          <input type="text" id="contactSubject" placeholder="Subject">
+          <textarea id="contactMessage" placeholder="Your message"></textarea>
+          <button class="btn btn-gold" onclick="sendMessage()">Send Message</button>
+          <p id="contactResponse"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN -->
+  <section class="admin" id="admin">
+    <div class="container">
+      <div class="section-title">
+        <h2>Administration Dashboard</h2>
+        <span></span>
+      </div>
+      <div class="admin-login">
+        <h3>Administrator Login</h3><br>
+        <input type="text" id="adminUser" placeholder="Username">
+        <input type="password" id="adminPassword" placeholder="Password">
+        <button class="btn btn-gold" onclick="adminLogin()">Login</button>
+        <p id="adminMessage"></p>
+      </div>
+      <div class="dashboard" id="dashboard">
+        <h2>Welcome, Administrator</h2><br>
+        <div class="dashboard-grid">
+          <div class="stat"><h2 id="applicationCount">0</h2><p>Applications</p></div>
+          <div class="stat"><h2>850+</h2><p>Students</p></div>
+          <div class="stat"><h2>50+</h2><p>Teachers</p></div>
+          <div class="stat"><h2>20+</h2><p>Activities</p></div>
+        </div>
+        <button class="btn btn-gold logout" onclick="adminLogout()">Logout</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>KYABAZINGA COLLEGE KAMULI</strong></p>
+    <p>"Educated and Cultured"</p>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">WhatsApp</a>
+    </div>
+    <p>© 2026 Kyabazinga College Kamuli. All Rights Reserved.</p>
+  </footer>
+
+  <button id="topBtn" onclick="topFunction()">↑</button>
+
+  <script>
+    // ========== HERO SLIDESHOW ==========
+    let currentHeroSlide = 0;
+    let heroTimer;
+
+    function showHeroSlide(index) {
+      const slides = document.querySelectorAll(".hero-slide");
+      const dots = document.querySelectorAll(".hero-dot");
+      const caption = document.getElementById("heroCaption");
+      if (!slides.length) return;
+      currentHeroSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === currentHeroSlide);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentHeroSlide);
+      });
+      if (caption) {
+        caption.textContent = slides[currentHeroSlide].dataset.caption || "";
+      }
+    }
+
+    function changeHeroSlide(direction) {
+      showHeroSlide(currentHeroSlide + direction);
+      startHeroTimer();
+    }
+
+    function goToHeroSlide(index) {
+      showHeroSlide(index);
+      startHeroTimer();
+    }
+
+    function startHeroTimer() {
+      clearInterval(heroTimer);
+      heroTimer = setInterval(() => {
+        showHeroSlide(currentHeroSlide + 1);
+      }, 10000);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      showHeroSlide(0);
+      startHeroTimer();
+      const hero = document.querySelector(".hero");
+      if (hero) {
+        hero.addEventListener("mouseenter", () => clearInterval(heroTimer));
+        hero.addEventListener("mouseleave", startHeroTimer);
+      }
+    });
+
+    // ========== MOBILE MENU ==========
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    // ========== ADMISSION ==========
+    document.getElementById("admissionForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name = document.getElementById("studentName").value;
+      let applications = Number(localStorage.getItem("applications") || 0);
+      applications++;
+      localStorage.setItem("applications", applications);
+      document.getElementById("admissionMessage").innerHTML = "✅ Thank you " + name + ". Your application has been received.";
+      this.reset();
+    });
+
+    // ========== PORTAL LOGIN ==========
+    function portalLogin() {
+      let user = document.getElementById("portalUser").value;
+      let password = document.getElementById("portalPassword").value;
+      let message = document.getElementById("portalMessage");
+      if (user !== "" && password !== "") {
+        message.style.color = "green";
+        message.innerHTML = "Login submitted successfully. Connect this form to the school's database for real accounts.";
+      } else {
+        message.style.color = "red";
+        message.innerHTML = "Please enter your ID and password.";
+      }
+    }
+
+    // ========== CONTACT ==========
+    function sendMessage() {
+      let name = document.getElementById("contactName").value;
+      let email = document.getElementById("contactEmail").value;
+      let message = document.getElementById("contactMessage").value;
+      if (name === "" || email === "" || message === "") {
+        document.getElementById("contactResponse").innerHTML = "Please complete all required fields.";
+        return;
+      }
+      document.getElementById("contactResponse").innerHTML = "✅ Thank you. Your message has been submitted.";
+    }
+
+    // ========== NEWS SEARCH ==========
+    function searchNews() {
+      let search = document.getElementById("newsSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".news-card");
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(search) ? "" : "none";
+      });
+    }
+
+    // ========== ADMIN LOGIN ==========
+    function adminLogin() {
+      let username = document.getElementById("adminUser").value;
+      let password = document.getElementById("adminPassword").value;
+      if (username === "admin" && password === "admin123") {
+        document.getElementById("adminMessage").innerHTML = "✅ Login successful.";
+        document.getElementById("dashboard").style.display = "block";
+        let applications = localStorage.getItem("applications") || 0;
+        document.getElementById("applicationCount").innerText = applications;
+      } else {
+        document.getElementById("adminMessage").innerHTML = "❌ Incorrect username or password.";
+      }
+    }
+
+    function adminLogout() {
+      document.getElementById("dashboard").style.display = "none";
+      document.getElementById("adminUser").value = "";
+      document.getElementById("adminPassword").value = "";
+    }
+
+    // ========== BACK TO TOP ==========
+    window.onscroll = function() {
+      let button = document.getElementById("topBtn");
+      if (document.documentElement.scrollTop > 300) {
+        button.style.display = "block";
+      } else {
+        button.style.display = "none";
+      }
+    };
+
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // close mobile menu on link click (better UX)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
