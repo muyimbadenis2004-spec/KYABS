@@ -104,7 +104,7 @@
       cursor: pointer;
     }
 
-    /* HERO SLIDESHOW — fully scrollable on phone */
+    /* HERO SLIDESHOW — Enhanced image visibility */
     .hero {
       min-height: 100vh;
       position: relative;
@@ -133,6 +133,7 @@
       opacity: 0;
       transform: scale(1.04);
       transition: opacity 1.2s ease, transform 10s ease;
+      filter: brightness(1.05) contrast(1.08);
     }
 
     .hero-slide.active {
@@ -144,14 +145,14 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(rgba(3, 19, 43, .55), rgba(3, 19, 43, .88));
+      background: linear-gradient(rgba(243, 246, 250, 0.45), rgba(3, 19, 43, 0.75));
     }
 
     .hero-content {
       max-width: 900px;
       position: relative;
       z-index: 2;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
       padding: 0 10px;
       width: 100%;
     }
@@ -166,29 +167,9 @@
       font-weight: bold;
     }
 
+    /* Hero dots - hidden */
     .hero-dots {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 5;
-    }
-
-    .hero-dot {
-      width: 11px;
-      height: 11px;
-      border: 2px solid white;
-      border-radius: 50%;
-      background: transparent;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .hero-dot.active {
-      background: #d9a441;
-      border-color: #d9a441;
+      display: none;
     }
 
     .hero-arrow {
@@ -200,10 +181,11 @@
       height: 48px;
       border: 0;
       border-radius: 50%;
-      background: rgba(7, 27, 58, .65);
+      background: rgba(7, 27, 58, .7);
       color: white;
       font-size: 28px;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     .hero-arrow:hover {
@@ -223,18 +205,21 @@
       font-size: 55px;
       margin-bottom: 15px;
       word-break: break-word;
+      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
     }
 
     .hero h2 {
       color: #d9a441;
       font-size: 28px;
       margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .hero p {
       font-size: 19px;
       line-height: 1.7;
       margin-bottom: 30px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .btn {
@@ -485,24 +470,97 @@
       margin-top: 10px;
     }
 
-    /* GALLERY */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+    /* GALLERY - SLIDESHOW with right-to-left transition */
+    .gallery-slideshow {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      background: #071b3a;
     }
 
-    .gallery img {
+    .gallery-slides-wrapper {
+      position: relative;
       width: 100%;
-      height: 210px;
-      object-fit: cover;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: .3s;
+      height: 450px;
+      overflow: hidden;
     }
 
-    .gallery img:hover {
-      transform: scale(1.04);
+    .gallery-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      object-fit: cover;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .gallery-slide.exit-left {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(7, 27, 58, 0.85));
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(7, 27, 58, 0.7);
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .gallery-nav:hover {
+      background: #d9a441;
+      color: #071b3a;
+    }
+
+    .gallery-prev {
+      left: 15px;
+    }
+
+    .gallery-next {
+      right: 15px;
+    }
+
+    /* Gallery dots - hidden */
+    .gallery-dots {
+      display: none;
     }
 
     /* PORTAL */
@@ -712,10 +770,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .gallery {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .dashboard-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -731,6 +785,10 @@
       }
       .hero-next {
         right: 10px;
+      }
+
+      .gallery-slides-wrapper {
+        height: 350px;
       }
     }
 
@@ -757,7 +815,6 @@
       }
 
       .cards,
-      .gallery,
       .info-boxes,
       .form-grid,
       .dashboard-grid {
@@ -783,16 +840,6 @@
       }
       .hero-next {
         right: 6px;
-      }
-
-      .hero-dots {
-        bottom: 12px;
-        gap: 8px;
-      }
-
-      .hero-dot {
-        width: 10px;
-        height: 10px;
       }
 
       .btn {
@@ -825,6 +872,28 @@
       .contact-form {
         padding: 20px;
       }
+
+      .gallery-slides-wrapper {
+        height: 250px;
+      }
+
+      .gallery-nav {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
+
+      .gallery-prev {
+        left: 8px;
+      }
+      .gallery-next {
+        right: 8px;
+      }
+
+      .gallery-slide-caption {
+        font-size: 13px;
+        padding: 12px;
+      }
     }
 
     @media(max-width: 380px) {
@@ -840,6 +909,10 @@
       .hero-caption {
         font-size: 13px;
         padding: 6px 14px;
+      }
+
+      .gallery-slides-wrapper {
+        height: 200px;
       }
     }
   </style>
@@ -872,7 +945,7 @@
     </nav>
   </header>
 
-  <!-- HERO SLIDESHOW (fully scrollable) -->
+  <!-- HERO SLIDESHOW — Enhanced image visibility, no dots -->
   <section class="hero" id="home">
     <div class="hero-slides">
       <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1800&q=85')" data-caption="Students & Teachers"></div>
@@ -881,7 +954,7 @@
       <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85')" data-caption="Our School Campus"></div>
       <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1800&q=85')" data-caption="School Environment"></div>
     </div>
-    <div class="hero-overlay"></div>
+    <div class="hereover-lay"></div>
 
     <button class="hero-arrow hero-prev" type="button" onclick="changeHeroSlide(-1)" aria-label="Previous slide">‹</button>
     <button class="hero-arrow hero-next" type="button" onclick="changeHeroSlide(1)" aria-label="Next slide">›</button>
@@ -893,14 +966,6 @@
       <p>Welcome to Kyabazinga College Kamuli, where education, discipline, leadership, talent and culture come together to prepare learners for a successful future.</p>
       <a href="#admissions" class="btn btn-gold">Apply Now</a>
       <a href="#about" class="btn btn-blue">Explore School</a>
-    </div>
-
-    <div class="hero-dots">
-      <button class="hero-dot active" onclick="goToHeroSlide(0)" aria-label="Slide 1"></button>
-      <button class="hero-dot" onclick="goToHeroSlide(1)" aria-label="Slide 2"></button>
-      <button class="hero-dot" onclick="goToHeroSlide(2)" aria-label="Slide 3"></button>
-      <button class="hero-dot" onclick="goToHeroSlide(3)" aria-label="Slide 4"></button>
-      <button class="hero-dot" onclick="goToHeroSlide(4)" aria-label="Slide 5"></button>
     </div>
   </section>
 
@@ -935,12 +1000,12 @@
         <span></span>
       </div>
       <div class="cards">
-        <div class="card"><div class="icon">📚</div><h3>Quality Education</h3><p>Learners are supported through structured academic programmes and dedicated teaching.</p></div>
-        <div class="card"><div class="icon">🏆</div><h3>Excellence</h3><p>We encourage learners to pursue excellence in academics, sports, leadership and talents.</p></div>
-        <div class="card"><div class="icon">👨‍🏫</div><h3>Dedicated Teachers</h3><p>Teachers guide learners academically and help them develop important life skills.</p></div>
-        <div class="card"><div class="icon">⚽</div><h3>Sports</h3><p>Students can participate in sports and other co-curricular activities.</p></div>
-        <div class="card"><div class="icon">💻</div><h3>ICT</h3><p>Technology and digital skills help learners prepare for the modern world.</p></div>
-        <div class="card"><div class="icon">🎭</div><h3>Talent Development</h3><p>Music, drama, debate, clubs and other activities help students discover their talents.</p></div>
+        <div class="card"><div class="icon"></div><h3>Quality Education</h3><p>Learners are supported through structured academic programmes and dedicated teaching.</p></div>
+        <div class="card"><div class="icon"></div><h3>Excellence</h3><p>We encourage learners to pursue excellence in academics, sports, leadership and talents.</p></div>
+        <div class="card"><div class="icon"></div><h3>Dedicated Teachers</h3><p>Teachers guide learners academically and help them develop important life skills.</p></div>
+        <div class="card"><div class="icon"></div><h3>Sports</h3><p>Students can participate in sports and other co-curricular activities.</p></div>
+        <div class="card"><div class="icon"></div><h3>ICT</h3><p>Technology and digital skills help learners prepare for the modern world.</p></div>
+        <div class="card"><div class="icon"></div><h3>Talent Development</h3><p>Music, drama, debate, clubs and other activities help students discover their talents.</p></div>
       </div>
     </div>
   </section>
@@ -1014,22 +1079,52 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERY - AUTO-PLAY SLIDESHOW with right-to-left transition, no dots -->
   <section id="gallery">
     <div class="container">
       <div class="section-title">
         <h2>School Gallery</h2>
         <span></span>
       </div>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" alt="gallery1">
-        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="gallery2">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="gallery3">
-        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=800&q=80" alt="gallery4">
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="gallery5">
-        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=800&q=80" alt="gallery6">
-        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="gallery7">
-        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80" alt="gallery8">
+
+      <div class="gallery-slideshow">
+        <div class="gallery-slides-wrapper" id="galleryWrapper">
+          <div class="gallery-slide active">
+            <img src="https://dailyexpress.co.ug/wp-content/uploads/2025/10/Lukungu-Ronald-named-Kyabazinga-FC-head-coach.jpg" alt="Kyabazinga FC">
+            <div class="gallery-slide-caption">Kyabazinga FC - School Football Team</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.ytimg.com/vi/2dOjEji1dBg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgRSgqMA8=&rs=AOn4CLAD4w1_GtRxxXlA2DbJLDL9LVOafQ" alt="School Event">
+            <div class="gallery-slide-caption">School Assembly & Events</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.ytimg.com/vi/D3AlbsR7QAQ/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGD8gVihlMA8=&rs=AOn4CLDDjQpdgPVTV7pu4X-KZ_hHRBXMVw" alt="Students">
+            <div class="gallery-slide-caption">Students in Action</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.ytimg.com/vi/dgG3v_QFCDU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgPyg9MA8=&rs=AOn4CLBwTyKGBBLM1RsAvjh3Xl7jgSQ9fA" alt="Campus">
+            <div class="gallery-slide-caption">School Campus Views</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.ytimg.com/vi/_0GeM94SOM0/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AGqBoAC4AOKAgwIABABGH8gFyhFMA8=&rs=AOn4CLD1D9ANBVeRqzw_tMG_vAltOdB9Lg" alt="Sports">
+            <div class="gallery-slide-caption">Sports & Athletics</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.ytimg.com/vi/iCf4xqj_RcY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEYgWihlMA8=&rs=AOn4CLAhcHJAbi6-l441XqmioxFl0BYyzg" alt="Academics">
+            <div class="gallery-slide-caption">Academic Activities</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://tse4.mm.bing.net/th/id/OIP._7l-PTpx_yv_9-cKE83x3gHaEc?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="School Building">
+            <div class="gallery-slide-caption">School Infrastructure</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://i.ytimg.com/vi/-GwGP5iS93o/maxresdefault.jpg" alt="Celebration">
+            <div class="gallery-slide-caption">Celebrations & Achievements</div>
+          </div>
+        </div>
+
+        <button class="gallery-nav gallery-prev" onclick="changeGallerySlide(-1)">‹</button>
+        <button class="gallery-nav gallery-next" onclick="changeGallerySlide(1)">›</button>
       </div>
     </div>
   </section>
@@ -1061,10 +1156,10 @@
       <div class="contact">
         <div class="contact-info">
           <h3>Kyabazinga College Kamuli</h3>
-          <p>📍 Kamuli District, Uganda</p>
-          <p>📮 P.O. Box 256, Kamuli</p>
-          <p>📞 +256 775 015100</p>
-          <p>📧 info@kyabazingacollege.ac.ug</p>
+          <p>Kamuli District, Uganda</p>
+          <p>P.O. Box 256, Kamuli</p>
+          <p>+256 750899569</p>
+          <p>info@kyabazingacollege.ac.ug</p>
           <p>For admissions, school information and other enquiries, please contact the school administration.</p>
         </div>
         <div class="contact-form">
@@ -1128,15 +1223,11 @@
 
     function showHeroSlide(index) {
       const slides = document.querySelectorAll(".hero-slide");
-      const dots = document.querySelectorAll(".hero-dot");
       const caption = document.getElementById("heroCaption");
       if (!slides.length) return;
       currentHeroSlide = (index + slides.length) % slides.length;
       slides.forEach((slide, i) => {
         slide.classList.toggle("active", i === currentHeroSlide);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentHeroSlide);
       });
       if (caption) {
         caption.textContent = slides[currentHeroSlide].dataset.caption || "";
@@ -1157,7 +1248,7 @@
       clearInterval(heroTimer);
       heroTimer = setInterval(() => {
         showHeroSlide(currentHeroSlide + 1);
-      }, 10000);
+      }, 3000);
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -1168,7 +1259,101 @@
         hero.addEventListener("mouseenter", () => clearInterval(heroTimer));
         hero.addEventListener("mouseleave", startHeroTimer);
       }
+      // Initialize gallery
+      initGallery();
     });
+
+    // ========== GALLERY SLIDESHOW (right-to-left transition, no dots) ==========
+    let currentGallerySlide = 0;
+    let galleryTimer;
+    let gallerySlides = [];
+    let isTransitioning = false;
+
+    function initGallery() {
+      gallerySlides = document.querySelectorAll(".gallery-slide");
+      currentGallerySlide = 0;
+      showGallerySlide(0);
+      startGalleryTimer();
+    }
+
+    function showGallerySlide(index) {
+      if (!gallerySlides.length || isTransitioning) return;
+      isTransitioning = true;
+
+      const oldIndex = currentGallerySlide;
+      const newIndex = (index + gallerySlides.length) % gallerySlides.length;
+
+      const oldSlide = gallerySlides[oldIndex];
+      const newSlide = gallerySlides[newIndex];
+
+      const goingForward = (newIndex > oldIndex) || (newIndex === 0 && oldIndex === gallerySlides.length - 1);
+
+      // Reset all slides
+      gallerySlides.forEach(slide => {
+        slide.classList.remove('active', 'exit-left');
+        slide.style.transform = '';
+        slide.style.opacity = '';
+      });
+
+      // Set initial positions
+      if (goingForward) {
+        newSlide.style.transform = 'translateX(100%)';
+        newSlide.style.opacity = '0';
+      } else {
+        newSlide.style.transform = 'translateX(-100%)';
+        newSlide.style.opacity = '0';
+      }
+
+      void newSlide.offsetHeight;
+
+      // Animate
+      if (goingForward) {
+        oldSlide.style.transform = 'translateX(-100%)';
+        oldSlide.style.opacity = '0';
+        newSlide.style.transform = 'translateX(0)';
+        newSlide.style.opacity = '1';
+      } else {
+        oldSlide.style.transform = 'translateX(100%)';
+        oldSlide.style.opacity = '0';
+        newSlide.style.transform = 'translateX(0)';
+        newSlide.style.opacity = '1';
+      }
+
+      setTimeout(() => {
+        gallerySlides.forEach(slide => {
+          slide.classList.remove('active');
+          slide.style.transform = '';
+          slide.style.opacity = '';
+        });
+        newSlide.classList.add('active');
+        newSlide.style.transform = 'translateX(0)';
+        newSlide.style.opacity = '1';
+
+        currentGallerySlide = newIndex;
+        isTransitioning = false;
+      }, 800);
+    }
+
+    function changeGallerySlide(direction) {
+      if (isTransitioning) return;
+      showGallerySlide(currentGallerySlide + direction);
+      startGalleryTimer();
+    }
+
+    function goToGallerySlide(index) {
+      if (isTransitioning || index === currentGallerySlide) return;
+      showGallerySlide(index);
+      startGalleryTimer();
+    }
+
+    function startGalleryTimer() {
+      clearInterval(galleryTimer);
+      galleryTimer = setInterval(() => {
+        if (!isTransitioning) {
+          showGallerySlide(currentGallerySlide + 1);
+        }
+      }, 5000);
+    }
 
     // ========== MOBILE MENU ==========
     function toggleMenu() {
@@ -1256,7 +1441,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    // close mobile menu on link click (better UX)
+    // close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
