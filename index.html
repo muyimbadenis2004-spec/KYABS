@@ -5,33 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Kyabazinga College Kamuli</title>
   <style>
+    /* ===== RESET & BASE ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       background: #f5f7fa;
       color: #172033;
       overflow-x: hidden;
     }
 
-    /* NAVBAR */
+    /* ===== NAVBAR ===== */
     header {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       background: #071b3a;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, .2);
+      box-shadow: 0 3px 15px rgba(0,0,0,.2);
     }
-
     .navbar {
       max-width: 1200px;
       margin: auto;
@@ -41,14 +37,12 @@
       justify-content: space-between;
       padding: 0 20px;
     }
-
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
       color: white;
     }
-
     .logo-circle {
       width: 48px;
       height: 48px;
@@ -57,13 +51,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: #071b3a;
       overflow: hidden;
       flex-shrink: 0;
     }
-
     .logo-circle img {
       width: 100%;
       height: 100%;
@@ -71,32 +61,20 @@
       display: block;
       border-radius: 50%;
     }
-
-    .logo h2 {
-      font-size: 18px;
-    }
-
-    .logo small {
-      color: #d9a441;
-    }
-
+    .logo h2 { font-size: 18px; }
+    .logo small { color: #d9a441; }
     .nav-links {
       display: flex;
       list-style: none;
       gap: 22px;
     }
-
     .nav-links a {
       color: white;
       text-decoration: none;
       font-size: 14px;
       transition: .3s;
     }
-
-    .nav-links a:hover {
-      color: #d9a441;
-    }
-
+    .nav-links a:hover { color: #d9a441; }
     .menu {
       display: none;
       color: white;
@@ -104,7 +82,7 @@
       cursor: pointer;
     }
 
-    /* HERO SLIDESHOW — Enhanced image visibility */
+    /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
       position: relative;
@@ -116,15 +94,14 @@
       padding: 100px 20px 50px;
       overflow: hidden;
       isolation: isolate;
+      height: 50%;
       width: 100%;
     }
-
     .hero-slides {
       position: absolute;
       inset: 0;
       z-index: -2;
     }
-
     .hero-slide {
       position: absolute;
       inset: 0;
@@ -133,30 +110,26 @@
       opacity: 0;
       transform: scale(1.04);
       transition: opacity 1.2s ease, transform 10s ease;
-      filter: brightness(1.05) contrast(1.08);
+      filter: brightness(1.05) contrast(1.05);
     }
-
     .hero-slide.active {
       opacity: 1;
       transform: scale(1);
     }
-
     .hero-overlay {
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(rgba(243, 246, 250, 0.45), rgba(3, 19, 43, 0.75));
+      background: linear-gradient(rgba(243,246,250,0.45), rgba(3,19,43,0.75));
     }
-
     .hero-content {
       max-width: 900px;
       position: relative;
       z-index: 2;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       padding: 0 10px;
       width: 100%;
     }
-
     .hero-caption {
       display: inline-block;
       margin-bottom: 18px;
@@ -166,12 +139,6 @@
       color: #071b3a;
       font-weight: bold;
     }
-
-    /* Hero dots - hidden */
-    .hero-dots {
-      display: none;
-    }
-
     .hero-arrow {
       position: absolute;
       top: 50%;
@@ -181,47 +148,34 @@
       height: 48px;
       border: 0;
       border-radius: 50%;
-      background: rgba(7, 27, 58, .7);
+      background: rgba(7,27,58,.7);
       color: white;
       font-size: 28px;
       cursor: pointer;
       transition: background 0.3s;
     }
-
-    .hero-arrow:hover {
-      background: #d9a441;
-      color: #071b3a;
-    }
-
-    .hero-prev {
-      left: 15px;
-    }
-
-    .hero-next {
-      right: 15px;
-    }
-
+    .hero-arrow:hover { background: #d9a441; color: #071b3a; }
+    .hero-prev { left: 15px; }
+    .hero-next { right: 15px; }
     .hero h1 {
       font-size: 55px;
       margin-bottom: 15px;
-      word-break: break-word;
-      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+      text-shadow: 0 3px 15px rgba(0,0,0,0.7);
     }
-
     .hero h2 {
       color: #d9a441;
       font-size: 28px;
       margin-bottom: 20px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
-
     .hero p {
       font-size: 19px;
       line-height: 1.7;
       margin-bottom: 30px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
+    /* ===== BUTTONS ===== */
     .btn {
       display: inline-block;
       padding: 14px 25px;
@@ -232,168 +186,192 @@
       border: none;
       cursor: pointer;
     }
+    .btn-gold { background: #d9a441; color: #071b3a; }
+    .btn-blue { background: #071b3a; color: white; }
+    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-email { background: #D44638; color: white; }
+    .btn:hover { transform: translateY(-2px); }
 
-    .btn-gold {
-      background: #d9a441;
-      color: #071b3a;
-    }
-
-    .btn-blue {
-      background: #071b3a;
-      color: white;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* GENERAL */
-    section {
-      padding: 80px 20px;
+    /* ===== SECTIONS (separated pages) ===== */
+    .page-section {
+      padding: 70px 20px;       /* slightly reduced from 80px to avoid too much gap */
       width: 100%;
       overflow: hidden;
+      position: relative;
+    }
+    /* Alternate background colours to separate pages subtly */
+    .page-section:nth-of-type(odd) {
+      background: #f5f7fa;
+    }
+    .page-section:nth-of-type(even) {
+      background: #ffffff;
+    }
+    /* Thin gold divider between pages */
+    .page-section + .page-section {
+      border-top: 2px solid rgba(217, 164, 65, 0.25);
+    }
+    /* Remove top border for the first section after hero */
+    .hero + .page-section {
+      border-top: none;
+    }
+    /* Keep the academic dark section as is */
+    .page-section.academic {
+      background: #071b3a;
+      border-top-color: rgba(255,255,255,0.08);
     }
 
-    .container {
-      max-width: 1150px;
-      margin: auto;
-      width: 100%;
-    }
+    .container { max-width: 1150px; margin: auto; width: 100%; }
 
+    /* ===== SECTION TITLE ===== */
     .section-title {
       text-align: center;
       margin-bottom: 45px;
     }
-
-    .section-title h2 {
-      font-size: 35px;
-      color: #071b3a;
+    .section-title h2 { 
+      font-size: 35px; 
+      color: #071b3a; 
+      display: inline-block;      /* shrink to text width */
+      position: relative;
+      padding-bottom: 12px;       /* space for the line */
     }
-
-    .section-title span {
-      display: block;
-      width: 60px;
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      width: 100%;                /* full width of the heading text */
       height: 4px;
       background: #d9a441;
-      margin: 12px auto;
     }
+    /* Academic section title white */
+    .academic .section-title h2 { color: white; }
 
-    /* ABOUT */
+    /* ===== ABOUT ===== */
     .about {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: center;
     }
-
-    .about img {
+    /* ----- About slideshow ----- */
+    .about-slideshow {
       width: 100%;
       border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
+      background: #071b3a;
+      position: relative;
     }
-
-    .about-text h3 {
-      font-size: 30px;
-      color: #071b3a;
-      margin-bottom: 20px;
+    .about-slides-wrapper {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
     }
-
-    .about-text p {
-      line-height: 1.8;
-      margin-bottom: 15px;
+    .about-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease;
+      object-fit: cover;
     }
+    .about-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .about-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 15px;
+      background: linear-gradient(transparent, rgba(7,27,58,0.8));
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .about-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(7,27,58,0.7);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .about-nav:hover { background: #d9a441; color: #071b3a; }
+    .about-prev { left: 10px; }
+    .about-next { right: 10px; }
 
+    .about-text h3 { font-size: 30px; color: #071b3a; margin-bottom: 20px; }
+    .about-text p { line-height: 1.8; margin-bottom: 15px; }
     .info-boxes {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       margin-top: 25px;
     }
-
     .info-box {
       padding: 20px;
       background: #fff;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, .08);
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
     }
+    .info-box h4 { color: #071b3a; margin-bottom: 8px; }
 
-    .info-box h4 {
-      color: #071b3a;
-      margin-bottom: 8px;
-    }
-
-    /* CARDS */
+    /* ===== CARDS ===== */
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 25px;
     }
-
     .card {
       background: white;
       padding: 30px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
       transition: .3s;
     }
+    .card:hover { transform: translateY(-8px); }
+    .card h3 { color: #071b3a; margin-bottom: 12px; }
+    .card p { line-height: 1.6; color: #555; }
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #071b3a;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      line-height: 1.6;
-      color: #555;
-    }
-
-    /* ACADEMICS */
-    .academic {
-      background: #071b3a;
-      color: white;
-    }
-
-    .academic .section-title h2 {
-      color: white;
-    }
-
+    /* ===== ACADEMICS ===== */
     .academic-card {
       background: white;
       color: #172033;
       border-radius: 12px;
       padding: 30px;
     }
+    .academic-card h3 { color: #071b3a; margin-bottom: 15px; }
+    .academic-card ul { list-style: none; }
+    .academic-card li { padding: 10px 0; border-bottom: 1px solid #ddd; }
 
-    .academic-card h3 {
-      color: #071b3a;
-      margin-bottom: 15px;
-    }
-
-    .academic-card ul {
-      list-style: none;
-    }
-
-    .academic-card li {
-      padding: 10px 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    /* ADMISSIONS */
-    .admission {
-      background: white;
-    }
-
+    /* ===== ADMISSION FORM ===== */
+    .admission { background: white; }   /* overridden by page-section nth rules but kept */
     .form {
       max-width: 800px;
       margin: auto;
@@ -401,30 +379,15 @@
       padding: 35px;
       border-radius: 15px;
     }
-
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-group.full {
-      grid-column: 1/-1;
-    }
-
-    label {
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
-
-    input,
-    select,
-    textarea {
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: 1/-1; }
+    label { margin-bottom: 7px; font-weight: bold; }
+    input, select, textarea {
       padding: 13px;
       border: 1px solid #ccd2da;
       border-radius: 6px;
@@ -432,62 +395,45 @@
       outline: none;
       width: 100%;
     }
+    input:focus, select:focus, textarea:focus { border-color: #d9a441; }
+    textarea { resize: vertical; min-height: 120px; }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #d9a441;
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .contact-actions .btn {
+      min-width: 180px;
+      text-align: center;
+      font-size: 16px;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
+    /* ===== NEWS ===== */
+    .news-card { overflow: hidden; padding: 0; text-align: left; }
+    .news-card img { width: 100%; height: 100%; object-fit: cover; }
+    .news-content { padding: 22px; }
+    .news-content small { color: #d9a441; font-weight: bold; }
+    .news-content p { margin-top: 10px; }
 
-    /* NEWS */
-    .news-card {
-      overflow: hidden;
-      padding: 0;
-      text-align: left;
-    }
-
-    .news-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
-
-    .news-content {
-      padding: 22px;
-    }
-
-    .news-content small {
-      color: #d9a441;
-      font-weight: bold;
-    }
-
-    .news-content p {
-      margin-top: 10px;
-    }
-
-    /* GALLERY - SLIDESHOW with right-to-left transition */
+    /* ===== GALLERY ===== */
     .gallery-slideshow {
       position: relative;
       max-width: 1000px;
       margin: 0 auto;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       background: #071b3a;
     }
-
     .gallery-slides-wrapper {
       position: relative;
       width: 100%;
       height: 450px;
       overflow: hidden;
     }
-
     .gallery-slide {
       position: absolute;
       top: 0;
@@ -496,39 +442,26 @@
       height: 100%;
       opacity: 0;
       transform: translateX(100%);
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.8s cubic-bezier(0.4,0,0.2,1), opacity 0.8s cubic-bezier(0.4,0,0.2,1);
       object-fit: cover;
     }
-
     .gallery-slide.active {
       opacity: 1;
       transform: translateX(0);
     }
-
-    .gallery-slide.exit-left {
-      opacity: 0;
-      transform: translateX(-100%);
-    }
-
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
+    .gallery-slide img { width: 100%; height: 100%; object-fit: cover; }
     .gallery-slide-caption {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       padding: 20px;
-      background: linear-gradient(transparent, rgba(7, 27, 58, 0.85));
+      background: linear-gradient(transparent, rgba(7,27,58,0.85));
       color: white;
       text-align: center;
       font-size: 16px;
       font-weight: bold;
     }
-
     .gallery-nav {
       position: absolute;
       top: 50%;
@@ -538,177 +471,80 @@
       height: 44px;
       border: none;
       border-radius: 50%;
-      background: rgba(7, 27, 58, 0.7);
+      background: rgba(7,27,58,0.7);
       color: white;
       font-size: 24px;
       cursor: pointer;
       transition: background 0.3s;
     }
+    .gallery-nav:hover { background: #d9a441; color: #071b3a; }
+    .gallery-prev { left: 15px; }
+    .gallery-next { right: 15px; }
 
-    .gallery-nav:hover {
-      background: #d9a441;
-      color: #071b3a;
-    }
-
-    .gallery-prev {
-      left: 15px;
-    }
-
-    .gallery-next {
-      right: 15px;
-    }
-
-    /* Gallery dots - hidden */
-    .gallery-dots {
-      display: none;
-    }
-
-    /* PORTAL */
-    .portal {
-      background: #eef2f7;
-    }
-
-    .portal-box {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 15px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
-    }
-
-    .portal-box input {
-      width: 100%;
-      margin-bottom: 15px;
-    }
-
-    .portal-message {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    /* CONTACT */
+    /* ===== CONTACT ===== */
     .contact {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
-
     .contact-info {
       background: #071b3a;
       color: white;
       padding: 35px;
       border-radius: 15px;
     }
-
-    .contact-info h3 {
+    .contact-info h3 { color: #d9a441; margin-bottom: 20px; }
+    .contact-info p { margin: 18px 0; }
+    .contact-info .contact-link {
       color: #d9a441;
-      margin-bottom: 20px;
+      text-decoration: none;
+      font-weight: bold;
     }
-
-    .contact-info p {
-      margin: 18px 0;
-    }
-
+    .contact-info .contact-link:hover { text-decoration: underline; }
     .contact-form {
       background: white;
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
-
-    .contact-form input,
-    .contact-form textarea {
+    .contact-form input, .contact-form textarea {
       width: 100%;
       margin-bottom: 15px;
     }
-
-    /* ADMIN */
-    .admin {
-      background: #111827;
-      color: white;
+    .contact-form .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 5px;
     }
-
-    .admin .section-title h2 {
-      color: white;
-    }
-
-    .admin-login {
-      max-width: 450px;
-      margin: auto;
-      background: #1f2937;
-      padding: 30px;
-      border-radius: 12px;
-    }
-
-    .admin-login input {
-      width: 100%;
-      margin-bottom: 15px;
-    }
-
-    .dashboard {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .stat {
-      background: #263244;
-      padding: 25px;
-      border-radius: 10px;
+    .contact-form .btn-group .btn {
+      flex: 1;
+      min-width: 140px;
       text-align: center;
     }
 
-    .stat h2 {
-      color: #d9a441;
-      font-size: 35px;
-    }
-
-    .logout {
-      margin-top: 20px;
-    }
-
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer {
       background: #030d1d;
       color: white;
       text-align: center;
       padding: 30px 20px;
     }
+    footer strong { color: #d9a441; }
+    .social { margin: 15px; font-size: 25px; }
+    .social a { color: white; margin: 8px; text-decoration: none; }
+    .social a:hover { color: #d9a441; }
 
-    footer strong {
-      color: #d9a441;
-    }
-
-    .social {
-      margin: 15px;
-      font-size: 25px;
-    }
-
-    .social a {
-      color: white;
-      margin: 8px;
-      text-decoration: none;
-    }
-
-    /* SEARCH */
+    /* ===== SEARCH ===== */
     .search-area {
       max-width: 600px;
       margin: 0 auto 30px;
       display: flex;
     }
-
     .search-area input {
       flex: 1;
       border-radius: 7px 0 0 7px;
     }
-
     .search-area button {
       border: 0;
       background: #d9a441;
@@ -718,7 +554,7 @@
       font-weight: bold;
     }
 
-    /* BACK TOP */
+    /* ===== BACK TO TOP ===== */
     #topBtn {
       position: fixed;
       bottom: 20px;
@@ -735,6 +571,18 @@
       z-index: 999;
     }
 
+    /* ===== MESSAGE STYLES ===== */
+    .info-message {
+      background: #e8f4fd;
+      border-left: 4px solid #2196F3;
+      padding: 15px 20px;
+      border-radius: 6px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .info-message p { margin: 8px 0; }
+    .info-message strong { color: #071b3a; }
+
     /* ===== RESPONSIVE ===== */
     @media(max-width: 900px) {
       .nav-links {
@@ -748,187 +596,65 @@
         padding: 20px;
         gap: 16px;
       }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .menu {
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .about,
-      .contact {
-        grid-template-columns: 1fr;
-      }
-
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .dashboard-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 22px;
-      }
-
-      .hero-prev {
-        left: 10px;
-      }
-      .hero-next {
-        right: 10px;
-      }
-
-      .gallery-slides-wrapper {
-        height: 350px;
-      }
+      .nav-links.active { display: flex; }
+      .menu { display: block; }
+      .hero h1 { font-size: 40px; }
+      .about, .contact { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .hero-arrow { width: 40px; height: 40px; font-size: 22px; }
+      .hero-prev { left: 10px; }
+      .hero-next { right: 10px; }
+      .gallery-slides-wrapper { height: 350px; }
+      .about-slides-wrapper { height: 280px; }
     }
-
     @media(max-width: 600px) {
-      section {
-        padding: 60px 15px;
-      }
-
-      .hero {
-        padding: 90px 15px 40px;
-        min-height: 100vh;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .hero h2 {
-        font-size: 20px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .cards,
-      .info-boxes,
-      .form-grid,
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-group.full {
-        grid-column: auto;
-      }
-
-      .navbar {
-        padding: 0 12px;
-      }
-
-      .hero-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
-      }
-
-      .hero-prev {
-        left: 6px;
-      }
-      .hero-next {
-        right: 6px;
-      }
-
-      .btn {
-        padding: 12px 18px;
-        font-size: 14px;
-      }
-
-      .logo h2 {
-        font-size: 15px;
-      }
-      .logo small {
-        font-size: 12px;
-      }
-      .logo-circle {
-        width: 40px;
-        height: 40px;
-      }
-
-      .section-title h2 {
-        font-size: 28px;
-      }
-
-      .about-text h3 {
-        font-size: 24px;
-      }
-
-      .contact-info {
-        padding: 25px;
-      }
-      .contact-form {
-        padding: 20px;
-      }
-
-      .gallery-slides-wrapper {
-        height: 250px;
-      }
-
-      .gallery-nav {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
-      }
-
-      .gallery-prev {
-        left: 8px;
-      }
-      .gallery-next {
-        right: 8px;
-      }
-
-      .gallery-slide-caption {
-        font-size: 13px;
-        padding: 12px;
-      }
+      .page-section { padding: 50px 15px; }
+      .hero { padding: 90px 15px 40px; min-height: 100vh; }
+      .hero h1 { font-size: 28px; }
+      .hero h2 { font-size: 20px; }
+      .hero p { font-size: 16px; }
+      .cards, .info-boxes, .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: auto; }
+      .navbar { padding: 0 12px; }
+      .hero-arrow { width: 36px; height: 36px; font-size: 20px; }
+      .hero-prev { left: 6px; }
+      .hero-next { right: 6px; }
+      .btn { padding: 12px 18px; font-size: 14px; }
+      .logo h2 { font-size: 15px; }
+      .logo small { font-size: 12px; }
+      .logo-circle { width: 40px; height: 40px; }
+      .section-title h2 { font-size: 28px; }
+      .about-text h3 { font-size: 24px; }
+      .contact-info { padding: 25px; }
+      .contact-form { padding: 20px; }
+      .gallery-slides-wrapper { height: 250px; }
+      .gallery-nav { width: 32px; height: 32px; font-size: 16px; }
+      .gallery-prev { left: 8px; }
+      .gallery-next { right: 8px; }
+      .gallery-slide-caption { font-size: 13px; padding: 12px; }
+      .contact-actions .btn { min-width: 140px; font-size: 14px; }
+      .contact-form .btn-group .btn { min-width: 100%; }
+      .about-slides-wrapper { height: 220px; }
+      .about-nav { width: 30px; height: 30px; font-size: 16px; }
     }
-
     @media(max-width: 380px) {
-      .hero h1 {
-        font-size: 24px;
-      }
-      .hero h2 {
-        font-size: 17px;
-      }
-      .hero p {
-        font-size: 14px;
-      }
-      .hero-caption {
-        font-size: 13px;
-        padding: 6px 14px;
-      }
-
-      .gallery-slides-wrapper {
-        height: 200px;
-      }
+      .hero h1 { font-size: 24px; }
+      .hero h2 { font-size: 17px; }
+      .hero p { font-size: 14px; }
+      .hero-caption { font-size: 13px; padding: 6px 14px; }
+      .gallery-slides-wrapper { height: 200px; }
+      .about-slides-wrapper { height: 180px; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- ===== NAVIGATION ===== -->
   <header>
     <nav class="navbar">
       <div class="logo">
-        <div class="logo-circle"><img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/9e7d9ae7aeab84cc2d9636e42efe29df~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=83915223&x-expires=1788429600&x-signature=GWBHxsCRKYQlFpo%2FKU1uTHlqcu8%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2" alt="logo"></div>
-        <div>
-          <h2>Kyabazinga College</h2>
-          <small>Kamuli</small>
-        </div>
+        <div class="logo-circle"><img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/9e7d9ae7aeab84cc2d9636e42efe29df~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=b76027b6&x-expires=1789131600&x-signature=jpBwTrTiUTDwK8QU14nZG%2FC6xKA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my3" alt="logo"></div>
+        <div><h2>Kyabazinga College</h2><small>Kamuli</small></div>
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
@@ -937,28 +663,26 @@
         <li><a href="#admissions">Admissions</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#portal">Portal</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#admin">Admin</a></li>
       </ul>
       <div class="menu" onclick="toggleMenu()">☰</div>
     </nav>
   </header>
 
-  <!-- HERO SLIDESHOW — Enhanced image visibility, no dots -->
+  <!-- ===== HERO ===== -->
   <section class="hero" id="home">
     <div class="hero-slides">
-      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1800&q=85')" data-caption="Students & Teachers"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1800&q=85')" data-caption="School Sick Bay"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85')" data-caption="Staff Room & Teamwork"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85')" data-caption="Our School Campus"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1800&q=85')" data-caption="School Environment"></div>
+      <div class="hero-slide active" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLDMzMXplqWLe8KWdt5EHXo2nUimKeLbPzWN4upfMNPzuzauhU6BlEng&s=10');" data-caption="Our students"></div>
+      <div class="hero-slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM1IAHoMPx4REf20a1SqQFqsmOMWqhTYVKxJxgAu0LkAAZNi_dnqV297p_&s=10')" data-caption="Elite Compus"></div>
+      <div class="hero-slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBKLlzFRD8ctpb89Fe0kL0BGozYxcthOuwtlkCnNPj41th-cFpsbFQr5w&s=10')" data-caption="School Team"></div>
+      <div class="hero-slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhx2aygshdyb8boEJCKE8QL29ueFd2KCl3yheHHpOgygRCBw_BfwIdoZM&s=10')" data-caption="MDD Performance"></div>
+      <div class="hero-slide" style="background-image:url('https://thepubliclensug.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-03-at-21.12.37-780x405.x25788.jpeg')" data-caption="Staff Team"></div>
+     <div class="hero-slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaLe2EPSXrksOsiOeNxh-oZjPWh40_DyEOpt8rcV2EINnFnGX-Be9VFLI&s=10')" data-caption="A Level Students"></div>
+     <div class="hero-slide" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBXYya0vHvtanIkdB9_utj4qloBhFDwpI8Dn1XmmdjXedoTYZldWTDuLap&s=10')" data-caption="O Level Students"></div>
     </div>
-    <div class="hereover-lay"></div>
-
+    <div class="hero-overlay"></div>
     <button class="hero-arrow hero-prev" type="button" onclick="changeHeroSlide(-1)" aria-label="Previous slide">‹</button>
     <button class="hero-arrow hero-next" type="button" onclick="changeHeroSlide(1)" aria-label="Next slide">›</button>
-
     <div class="hero-content">
       <div class="hero-caption" id="heroCaption">Students & Teachers</div>
       <h1>KYABAZINGA COLLEGE KAMULI</h1>
@@ -969,15 +693,39 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
+  <!-- ===== ABOUT (page-section) ===== -->
+  <section id="about" class="page-section">
     <div class="container">
-      <div class="section-title">
-        <h2>About Our School</h2>
-        <span></span>
-      </div>
+      <div class="section-title"><h2>About Our School</h2></div>
       <div class="about">
-        <img src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=80" alt="school">
+        <!-- About slideshow replaces the single image -->
+        <div class="about-slideshow">
+          <div class="about-slides-wrapper" id="aboutWrapper">
+            <div class="about-slide active">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr0waK35Q1NnoVcwdXl4lcJMotsfIspTKTRDFJamayWg&s=10" alt="School campus">
+              <div class="about-slide-caption">Our main campus</div>
+            </div>
+            <div class="about-slide">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLDMzMXplqWLe8KWdt5EHXo2nUimKeLbPzWN4upfMNPzuzauhU6BlEng&s=10" alt="Students learning">
+              <div class="about-slide-caption">Career Guidance</div>
+            </div>
+            <div class="about-slide">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xmOq0JEpuPtS1kUlwwC6ffVjPEsDnRApUSjPPAVXKEdnfUOYRPJPYTgl&s=10" alt="Sports activities">
+              <div class="about-slide-caption">Sports & athletics</div>
+            </div>
+            <div class="about-slide">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS74P2Kc7YDR_O6FJlXM3u4PcZ2tkTHR0hI4pmsOqlN_g&s=10" alt="Student development">
+              <div class="about-slide-caption">Student development</div>
+            </div>
+            <div class="about-slide">
+              <img src="https://dailyexpress.co.ug/wp-content/uploads/2025/10/Lukungu-Ronald-named-Kyabazinga-FC-head-coach.jpg" alt="Kyabazinga FC">
+              <div class="about-slide-caption">Kyabazinga FC</div>
+            </div>
+          </div>
+          <button class="about-nav about-prev" onclick="changeAboutSlide(-1)">‹</button>
+          <button class="about-nav about-next" onclick="changeAboutSlide(1)">›</button>
+        </div>
+
         <div class="about-text">
           <h3>Welcome to Kyabazinga College Kamuli</h3>
           <p>Kyabazinga College Kamuli is committed to providing quality education while nurturing discipline, leadership, talent, creativity and cultural values.</p>
@@ -992,31 +740,25 @@
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section>
+  <!-- ===== WHY CHOOSE US (page-section) ===== -->
+  <section class="page-section">
     <div class="container">
-      <div class="section-title">
-        <h2>Why Choose Us?</h2>
-        <span></span>
-      </div>
+      <div class="section-title"><h2>Why Choose Us?</h2></div>
       <div class="cards">
-        <div class="card"><div class="icon"></div><h3>Quality Education</h3><p>Learners are supported through structured academic programmes and dedicated teaching.</p></div>
-        <div class="card"><div class="icon"></div><h3>Excellence</h3><p>We encourage learners to pursue excellence in academics, sports, leadership and talents.</p></div>
-        <div class="card"><div class="icon"></div><h3>Dedicated Teachers</h3><p>Teachers guide learners academically and help them develop important life skills.</p></div>
-        <div class="card"><div class="icon"></div><h3>Sports</h3><p>Students can participate in sports and other co-curricular activities.</p></div>
-        <div class="card"><div class="icon"></div><h3>ICT</h3><p>Technology and digital skills help learners prepare for the modern world.</p></div>
-        <div class="card"><div class="icon"></div><h3>Talent Development</h3><p>Music, drama, debate, clubs and other activities help students discover their talents.</p></div>
+        <div class="card"><h3>Quality Education</h3><p>Learners are supported through structured academic programmes and dedicated teaching.</p></div>
+        <div class="card"><h3>Excellence</h3><p>We encourage learners to pursue excellence in academics, sports, leadership and talents.</p></div>
+        <div class="card"><h3>Dedicated Teachers</h3><p>Teachers guide learners academically and help them develop important life skills.</p></div>
+        <div class="card"><h3>Sports</h3><p>Students can participate in sports and other co-curricular activities.</p></div>
+        <div class="card"><h3>ICT</h3><p>Technology and digital skills help learners prepare for the modern world.</p></div>
+        <div class="card"><h3>Talent Development</h3><p>Music, drama, debate, clubs and other activities help students discover their talents.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ACADEMICS -->
-  <section class="academic" id="academics">
+  <!-- ===== ACADEMICS (page-section) ===== -->
+  <section class="page-section academic" id="academics">
     <div class="container">
-      <div class="section-title">
-        <h2>Academic Programmes</h2>
-        <span></span>
-      </div>
+      <div class="section-title"><h2>Academic Programmes</h2></div>
       <div class="cards">
         <div class="academic-card"><h3>O-Level</h3><ul><li>Senior One</li><li>Senior Two</li><li>Senior Three</li><li>Senior Four</li><li>UCE Preparation</li></ul></div>
         <div class="academic-card"><h3>A-Level</h3><ul><li>Senior Five</li><li>Senior Six</li><li>Arts Programmes</li><li>Science Programmes</li><li>UACE Preparation</li></ul></div>
@@ -1025,38 +767,88 @@
     </div>
   </section>
 
-  <!-- ADMISSIONS -->
-  <section class="admission" id="admissions">
+  <!-- ===== ADMISSIONS (page-section) ===== -->
+  <section class="page-section admission" id="admissions">
     <div class="container">
       <div class="section-title">
         <h2>Online Admission</h2>
-        <span></span>
-        <p>Fill in the form below to submit an admission request.</p>
+        <p>Fill in the form below and send it to us via Email or WhatsApp.</p>
       </div>
-      <form class="form" id="admissionForm">
+      <div class="form">
         <div class="form-grid">
-          <div class="form-group"><label>Student Name</label><input type="text" id="studentName" required></div>
-          <div class="form-group"><label>Date of Birth</label><input type="date" required></div>
-          <div class="form-group"><label>Gender</label><select required><option value="">Select Gender</option><option>Male</option><option>Female</option></select></div>
-          <div class="form-group"><label>Class Applying For</label><select required><option value="">Select Class</option><option>Senior One</option><option>Senior Two</option><option>Senior Three</option><option>Senior Four</option><option>Senior Five</option><option>Senior Six</option></select></div>
-          <div class="form-group"><label>Previous School</label><input type="text" required></div>
-          <div class="form-group"><label>Parent/Guardian Name</label><input type="text" required></div>
-          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+256..." required></div>
-          <div class="form-group"><label>Email</label><input type="email"></div>
-          <div class="form-group full"><label>Additional Information</label><textarea></textarea></div>
+          <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" id="admissionName" placeholder="Full name of student">
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="admissionDob">
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <select id="admissionGender">
+              <option value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Class Applying For</label>
+            <select id="admissionClass">
+              <option value="">Select Class</option>
+              <option>Senior One</option>
+              <option>Senior Two</option>
+              <option>Senior Three</option>
+              <option>Senior Four</option>
+              <option>Senior Five</option>
+              <option>Senior Six</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Previous School</label>
+            <input type="text" id="admissionPrevSchool" placeholder="Name of previous school">
+          </div>
+          <div class="form-group">
+            <label>Parent/Guardian Name</label>
+            <input type="text" id="admissionParent" placeholder="Parent or guardian full name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="admissionPhone" placeholder="+256...">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="admissionEmail" placeholder="your@email.com">
+          </div>
+          <div class="form-group full">
+            <label>Additional Information</label>
+            <textarea id="admissionInfo" placeholder="Any extra details..."></textarea>
+          </div>
         </div>
-        <button class="btn btn-gold" type="submit">Submit Application</button>
-        <p id="admissionMessage"></p>
-      </form>
+
+        <div class="info-message">
+          <p><strong>To complete your application:</strong></p>
+          <p>Fill in all fields, then click one of the buttons below to send us your details via <strong>Email</strong> or <strong>WhatsApp</strong>.</p>
+        </div>
+
+        <div class="contact-actions">
+          <button class="btn btn-email" onclick="sendAdmissionEmail()">
+            📧 Send via Email
+          </button>
+          <button class="btn btn-whatsapp" onclick="sendAdmissionWhatsApp()">
+            💬 Send via WhatsApp
+          </button>
+        </div>
+        <p id="admissionMessage" style="text-align:center; margin-top:15px; font-weight:bold;"></p>
+      </div>
     </div>
   </section>
 
-  <!-- NEWS -->
-  <section id="news">
+  <!-- ===== NEWS (page-section) ===== -->
+  <section class="page-section" id="news">
     <div class="container">
       <div class="section-title">
         <h2>School News & Events</h2>
-        <span></span>
       </div>
       <div class="search-area">
         <input type="text" id="newsSearch" placeholder="Search school news...">
@@ -1064,103 +856,55 @@
       </div>
       <div class="cards" id="newsContainer">
         <div class="card news-card">
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="academics">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHTgK_Jg66I2Depa_ou-1niU67pQyoha23PM9RVjxH1agJb-UrntG7uM&s=10" alt="academics">
           <div class="news-content"><small>ACADEMICS</small><h3>Academic Excellence</h3><p>Follow school academic activities, examinations and learner achievements.</p></div>
         </div>
         <div class="card news-card">
-          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" alt="sports">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xmOq0JEpuPtS1kUlwwC6ffVjPEsDnRApUSjPPAVXKEdnfUOYRPJPYTgl&s=10" alt="sports">
           <div class="news-content"><small>SPORTS</small><h3>Sports Activities</h3><p>Students participate in various sporting activities and competitions.</p></div>
         </div>
         <div class="card news-card">
-          <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80" alt="students">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS74P2Kc7YDR_O6FJlXM3u4PcZ2tkTHR0hI4pmsOqlN_g&s=10" alt="students">
           <div class="news-content"><small>STUDENTS</small><h3>Student Development</h3><p>Discover activities that encourage leadership, creativity and personal development.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY - AUTO-PLAY SLIDESHOW with right-to-left transition, no dots -->
-  <section id="gallery">
+  <!-- ===== GALLERY (page-section) ===== -->
+  <section class="page-section" id="gallery">
     <div class="container">
-      <div class="section-title">
-        <h2>School Gallery</h2>
-        <span></span>
-      </div>
-
+      <div class="section-title"><h2>School Gallery</h2></div>
       <div class="gallery-slideshow">
         <div class="gallery-slides-wrapper" id="galleryWrapper">
-          <div class="gallery-slide active">
-            <img src="https://dailyexpress.co.ug/wp-content/uploads/2025/10/Lukungu-Ronald-named-Kyabazinga-FC-head-coach.jpg" alt="Kyabazinga FC">
-            <div class="gallery-slide-caption">Kyabazinga FC - School Football Team</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://i.ytimg.com/vi/2dOjEji1dBg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgRSgqMA8=&rs=AOn4CLAD4w1_GtRxxXlA2DbJLDL9LVOafQ" alt="School Event">
-            <div class="gallery-slide-caption">School Assembly & Events</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://i.ytimg.com/vi/D3AlbsR7QAQ/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGD8gVihlMA8=&rs=AOn4CLDDjQpdgPVTV7pu4X-KZ_hHRBXMVw" alt="Students">
-            <div class="gallery-slide-caption">Students in Action</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://i.ytimg.com/vi/dgG3v_QFCDU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgPyg9MA8=&rs=AOn4CLBwTyKGBBLM1RsAvjh3Xl7jgSQ9fA" alt="Campus">
-            <div class="gallery-slide-caption">School Campus Views</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://i.ytimg.com/vi/_0GeM94SOM0/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AGqBoAC4AOKAgwIABABGH8gFyhFMA8=&rs=AOn4CLD1D9ANBVeRqzw_tMG_vAltOdB9Lg" alt="Sports">
-            <div class="gallery-slide-caption">Sports & Athletics</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://i.ytimg.com/vi/iCf4xqj_RcY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEYgWihlMA8=&rs=AOn4CLAhcHJAbi6-l441XqmioxFl0BYyzg" alt="Academics">
-            <div class="gallery-slide-caption">Academic Activities</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://tse4.mm.bing.net/th/id/OIP._7l-PTpx_yv_9-cKE83x3gHaEc?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="School Building">
-            <div class="gallery-slide-caption">School Infrastructure</div>
-          </div>
-          <div class="gallery-slide">
-            <img src="https://i.ytimg.com/vi/-GwGP5iS93o/maxresdefault.jpg" alt="Celebration">
-            <div class="gallery-slide-caption">Celebrations & Achievements</div>
-          </div>
+          <div class="gallery-slide active"><img src="https://dailyexpress.co.ug/wp-content/uploads/2025/10/Lukungu-Ronald-named-Kyabazinga-FC-head-coach.jpg" alt="Kyabazinga FC"><div class="gallery-slide-caption">Kyabazinga FC - School Football Team</div></div>
+          <div class="gallery-slide"><img src="https://i.ytimg.com/vi/2dOjEji1dBg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgRSgqMA8=&rs=AOn4CLAD4w1_GtRxxXlA2DbJLDL9LVOafQ" alt="School Event"><div class="gallery-slide-caption">School Assembly & Events</div></div>
+          <div class="gallery-slide"><img src="https://i.ytimg.com/vi/D3AlbsR7QAQ/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGD8gVihlMA8=&rs=AOn4CLDDjQpdgPVTV7pu4X-KZ_hHRBXMVw" alt="Students"><div class="gallery-slide-caption">Students in Action</div></div>
+          <div class="gallery-slide"><img src="https://i.ytimg.com/vi/dgG3v_QFCDU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgPyg9MA8=&rs=AOn4CLBwTyKGBBLM1RsAvjh3Xl7jgSQ9fA" alt="Campus"><div class="gallery-slide-caption">School Campus Views</div></div>
+          <div class="gallery-slide"><img src="https://i.ytimg.com/vi/_0GeM94SOM0/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AGqBoAC4AOKAgwIABABGH8gFyhFMA8=&rs=AOn4CLD1D9ANBVeRqzw_tMG_vAltOdB9Lg" alt="Sports"><div class="gallery-slide-caption">Sports & Athletics</div></div>
+          <div class="gallery-slide"><img src="https://i.ytimg.com/vi/iCf4xqj_RcY/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEYgWihlMA8=&rs=AOn4CLAhcHJAbi6-l441XqmioxFl0BYyzg" alt="Academics"><div class="gallery-slide-caption">Academic Activities</div></div>
+          <div class="gallery-slide"><img src="https://tse4.mm.bing.net/th/id/OIP._7l-PTpx_yv_9-cKE83x3gHaEc?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="School Building"><div class="gallery-slide-caption">School Infrastructure</div></div>
+          <div class="gallery-slide"><img src="https://i.ytimg.com/vi/-GwGP5iS93o/maxresdefault.jpg" alt="Celebration"><div class="gallery-slide-caption">Celebrations & Achievements</div></div>
         </div>
-
         <button class="gallery-nav gallery-prev" onclick="changeGallerySlide(-1)">‹</button>
         <button class="gallery-nav gallery-next" onclick="changeGallerySlide(1)">›</button>
       </div>
     </div>
   </section>
 
-  <!-- PORTAL -->
-  <section class="portal" id="portal">
+  <!-- ===== CONTACT (page-section) ===== -->
+  <section class="page-section" id="contact">
     <div class="container">
-      <div class="section-title">
-        <h2>Student & Parent Portal</h2>
-        <span></span>
-      </div>
-      <div class="portal-box">
-        <h3>Portal Login</h3><br>
-        <input type="text" id="portalUser" placeholder="Student ID / Parent ID">
-        <input type="password" id="portalPassword" placeholder="Password">
-        <button class="btn btn-gold" onclick="portalLogin()">Login</button>
-        <p class="portal-message" id="portalMessage"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact Us</h2>
-        <span></span>
-      </div>
+      <div class="section-title"><h2>Contact Us</h2></div>
       <div class="contact">
         <div class="contact-info">
           <h3>Kyabazinga College Kamuli</h3>
-          <p>Kamuli District, Uganda</p>
-          <p>P.O. Box 256, Kamuli</p>
-          <p>+256 750899569</p>
-          <p>info@kyabazingacollege.ac.ug</p>
-          <p>For admissions, school information and other enquiries, please contact the school administration.</p>
+          <p> Kamuli District, Uganda</p>
+          <p> P.O. Box 256, Kamuli</p>
+          <p>📞 <a href="tel:+256 787152028" class="contact-link">+256 787152028</a></p>
+          <p>📧 <a href="mailto:info@kyabazingacollege.ac.ug" class="contact-link">info@kyabazingacollege.ac.ug</a></p>
+          <p>💬 <a href="https://wa.me/256 787152028" target="_blank" class="contact-link">Chat with us on WhatsApp</a></p>
+          <p style="margin-top:20px; font-size:15px; opacity:0.9;">For admissions, school information and other enquiries, please contact the school administration.</p>
         </div>
         <div class="contact-form">
           <h3>Send Us a Message</h3><br>
@@ -1168,48 +912,29 @@
           <input type="email" id="contactEmail" placeholder="Your Email">
           <input type="text" id="contactSubject" placeholder="Subject">
           <textarea id="contactMessage" placeholder="Your message"></textarea>
-          <button class="btn btn-gold" onclick="sendMessage()">Send Message</button>
-          <p id="contactResponse"></p>
+
+          <div class="info-message" style="margin-bottom:15px;">
+            <p style="font-size:14px;">Click a button below to send your message via <strong>Email</strong> or <strong>WhatsApp</strong>.</p>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-email" onclick="sendContactEmail()">📧 Send via Email</button>
+            <button class="btn btn-whatsapp" onclick="sendContactWhatsApp()">💬 Send via WhatsApp</button>
+          </div>
+          <p id="contactResponse" style="text-align:center; margin-top:15px; font-weight:bold;"></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ADMIN -->
-  <section class="admin" id="admin">
-    <div class="container">
-      <div class="section-title">
-        <h2>Administration Dashboard</h2>
-        <span></span>
-      </div>
-      <div class="admin-login">
-        <h3>Administrator Login</h3><br>
-        <input type="text" id="adminUser" placeholder="Username">
-        <input type="password" id="adminPassword" placeholder="Password">
-        <button class="btn btn-gold" onclick="adminLogin()">Login</button>
-        <p id="adminMessage"></p>
-      </div>
-      <div class="dashboard" id="dashboard">
-        <h2>Welcome, Administrator</h2><br>
-        <div class="dashboard-grid">
-          <div class="stat"><h2 id="applicationCount">0</h2><p>Applications</p></div>
-          <div class="stat"><h2>850+</h2><p>Students</p></div>
-          <div class="stat"><h2>50+</h2><p>Teachers</p></div>
-          <div class="stat"><h2>20+</h2><p>Activities</p></div>
-        </div>
-        <button class="btn btn-gold logout" onclick="adminLogout()">Logout</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p><strong>KYABAZINGA COLLEGE KAMULI</strong></p>
     <p>"Educated and Cultured"</p>
     <div class="social">
       <a href="#">Facebook</a>
       <a href="#">YouTube</a>
-      <a href="#">WhatsApp</a>
+      <a href="https://wa.me/256750899569" target="_blank">WhatsApp</a>
     </div>
     <p>© 2026 Kyabazinga College Kamuli. All Rights Reserved.</p>
   </footer>
@@ -1217,10 +942,9 @@
   <button id="topBtn" onclick="topFunction()">↑</button>
 
   <script>
-    // ========== HERO SLIDESHOW ==========
+    // ===== HERO SLIDESHOW =====
     let currentHeroSlide = 0;
     let heroTimer;
-
     function showHeroSlide(index) {
       const slides = document.querySelectorAll(".hero-slide");
       const caption = document.getElementById("heroCaption");
@@ -1229,73 +953,59 @@
       slides.forEach((slide, i) => {
         slide.classList.toggle("active", i === currentHeroSlide);
       });
-      if (caption) {
-        caption.textContent = slides[currentHeroSlide].dataset.caption || "";
-      }
+      if (caption) caption.textContent = slides[currentHeroSlide].dataset.caption || "";
     }
-
     function changeHeroSlide(direction) {
       showHeroSlide(currentHeroSlide + direction);
       startHeroTimer();
     }
-
-    function goToHeroSlide(index) {
-      showHeroSlide(index);
-      startHeroTimer();
-    }
-
     function startHeroTimer() {
       clearInterval(heroTimer);
-      heroTimer = setInterval(() => {
-        showHeroSlide(currentHeroSlide + 1);
-      }, 3000);
+      heroTimer = setInterval(() => showHeroSlide(currentHeroSlide + 1), 3000);
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-      showHeroSlide(0);
-      startHeroTimer();
-      const hero = document.querySelector(".hero");
-      if (hero) {
-        hero.addEventListener("mouseenter", () => clearInterval(heroTimer));
-        hero.addEventListener("mouseleave", startHeroTimer);
-      }
-      // Initialize gallery
-      initGallery();
-    });
+    // ===== ABOUT SLIDESHOW (new) =====
+    let currentAboutSlide = 0;
+    let aboutTimer;
+    let aboutSlides = [];
+    let aboutTransitioning = false;
 
-    // ========== GALLERY SLIDESHOW (right-to-left transition, no dots) ==========
-    let currentGallerySlide = 0;
-    let galleryTimer;
-    let gallerySlides = [];
-    let isTransitioning = false;
-
-    function initGallery() {
-      gallerySlides = document.querySelectorAll(".gallery-slide");
-      currentGallerySlide = 0;
-      showGallerySlide(0);
-      startGalleryTimer();
+    function initAboutGallery() {
+      aboutSlides = document.querySelectorAll('.about-slide');
+      if (!aboutSlides.length) return;
+      currentAboutSlide = 0;
+      // Ensure first is active
+      aboutSlides.forEach((s, i) => {
+        if (i === 0) {
+          s.classList.add('active');
+          s.style.transform = 'translateX(0)';
+          s.style.opacity = '1';
+        } else {
+          s.classList.remove('active');
+          s.style.transform = 'translateX(100%)';
+          s.style.opacity = '0';
+        }
+      });
+      startAboutTimer();
     }
 
-    function showGallerySlide(index) {
-      if (!gallerySlides.length || isTransitioning) return;
-      isTransitioning = true;
+    function showAboutSlide(index) {
+      if (!aboutSlides.length || aboutTransitioning) return;
+      aboutTransitioning = true;
+      const oldIndex = currentAboutSlide;
+      const newIndex = (index + aboutSlides.length) % aboutSlides.length;
+      const oldSlide = aboutSlides[oldIndex];
+      const newSlide = aboutSlides[newIndex];
+      const goingForward = (newIndex > oldIndex) || (newIndex === 0 && oldIndex === aboutSlides.length - 1);
 
-      const oldIndex = currentGallerySlide;
-      const newIndex = (index + gallerySlides.length) % gallerySlides.length;
-
-      const oldSlide = gallerySlides[oldIndex];
-      const newSlide = gallerySlides[newIndex];
-
-      const goingForward = (newIndex > oldIndex) || (newIndex === 0 && oldIndex === gallerySlides.length - 1);
-
-      // Reset all slides
-      gallerySlides.forEach(slide => {
-        slide.classList.remove('active', 'exit-left');
-        slide.style.transform = '';
-        slide.style.opacity = '';
+      // Reset inline styles for all (but keep active class only on new after transition)
+      aboutSlides.forEach(s => {
+        s.classList.remove('active');
+        s.style.transform = '';
+        s.style.opacity = '';
       });
 
-      // Set initial positions
+      // Position new slide off-screen
       if (goingForward) {
         newSlide.style.transform = 'translateX(100%)';
         newSlide.style.opacity = '0';
@@ -1303,10 +1013,9 @@
         newSlide.style.transform = 'translateX(-100%)';
         newSlide.style.opacity = '0';
       }
+      void newSlide.offsetHeight; // force reflow
 
-      void newSlide.offsetHeight;
-
-      // Animate
+      // Animate old and new
       if (goingForward) {
         oldSlide.style.transform = 'translateX(-100%)';
         oldSlide.style.opacity = '0';
@@ -1319,6 +1028,77 @@
         newSlide.style.opacity = '1';
       }
 
+      // After transition ends, clean up
+      setTimeout(() => {
+        aboutSlides.forEach(s => {
+          s.classList.remove('active');
+          s.style.transform = '';
+          s.style.opacity = '';
+        });
+        newSlide.classList.add('active');
+        newSlide.style.transform = 'translateX(0)';
+        newSlide.style.opacity = '1';
+        currentAboutSlide = newIndex;
+        aboutTransitioning = false;
+      }, 600);
+    }
+
+    function changeAboutSlide(direction) {
+      if (aboutTransitioning) return;
+      showAboutSlide(currentAboutSlide + direction);
+      startAboutTimer();
+    }
+
+    function startAboutTimer() {
+      clearInterval(aboutTimer);
+      aboutTimer = setInterval(() => {
+        if (!aboutTransitioning) showAboutSlide(currentAboutSlide + 1);
+      }, 4500);
+    }
+
+    // ===== GALLERY SLIDESHOW =====
+    let currentGallerySlide = 0;
+    let galleryTimer;
+    let gallerySlides = [];
+    let isTransitioning = false;
+    function initGallery() {
+      gallerySlides = document.querySelectorAll(".gallery-slide");
+      currentGallerySlide = 0;
+      showGallerySlide(0);
+      startGalleryTimer();
+    }
+    function showGallerySlide(index) {
+      if (!gallerySlides.length || isTransitioning) return;
+      isTransitioning = true;
+      const oldIndex = currentGallerySlide;
+      const newIndex = (index + gallerySlides.length) % gallerySlides.length;
+      const oldSlide = gallerySlides[oldIndex];
+      const newSlide = gallerySlides[newIndex];
+      const goingForward = (newIndex > oldIndex) || (newIndex === 0 && oldIndex === gallerySlides.length - 1);
+      gallerySlides.forEach(slide => {
+        slide.classList.remove('active', 'exit-left');
+        slide.style.transform = '';
+        slide.style.opacity = '';
+      });
+      if (goingForward) {
+        newSlide.style.transform = 'translateX(100%)';
+        newSlide.style.opacity = '0';
+      } else {
+        newSlide.style.transform = 'translateX(-100%)';
+        newSlide.style.opacity = '0';
+      }
+      void newSlide.offsetHeight;
+      if (goingForward) {
+        oldSlide.style.transform = 'translateX(-100%)';
+        oldSlide.style.opacity = '0';
+        newSlide.style.transform = 'translateX(0)';
+        newSlide.style.opacity = '1';
+      } else {
+        oldSlide.style.transform = 'translateX(100%)';
+        oldSlide.style.opacity = '0';
+        newSlide.style.transform = 'translateX(0)';
+        newSlide.style.opacity = '1';
+      }
       setTimeout(() => {
         gallerySlides.forEach(slide => {
           slide.classList.remove('active');
@@ -1328,76 +1108,135 @@
         newSlide.classList.add('active');
         newSlide.style.transform = 'translateX(0)';
         newSlide.style.opacity = '1';
-
         currentGallerySlide = newIndex;
         isTransitioning = false;
       }, 800);
     }
-
     function changeGallerySlide(direction) {
       if (isTransitioning) return;
       showGallerySlide(currentGallerySlide + direction);
       startGalleryTimer();
     }
-
-    function goToGallerySlide(index) {
-      if (isTransitioning || index === currentGallerySlide) return;
-      showGallerySlide(index);
-      startGalleryTimer();
-    }
-
     function startGalleryTimer() {
       clearInterval(galleryTimer);
       galleryTimer = setInterval(() => {
-        if (!isTransitioning) {
-          showGallerySlide(currentGallerySlide + 1);
-        }
+        if (!isTransitioning) showGallerySlide(currentGallerySlide + 1);
       }, 5000);
     }
 
-    // ========== MOBILE MENU ==========
+    // ===== MOBILE MENU =====
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
-
-    // ========== ADMISSION ==========
-    document.getElementById("admissionForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let name = document.getElementById("studentName").value;
-      let applications = Number(localStorage.getItem("applications") || 0);
-      applications++;
-      localStorage.setItem("applications", applications);
-      document.getElementById("admissionMessage").innerHTML = "✅ Thank you " + name + ". Your application has been received.";
-      this.reset();
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active'));
     });
 
-    // ========== PORTAL LOGIN ==========
-    function portalLogin() {
-      let user = document.getElementById("portalUser").value;
-      let password = document.getElementById("portalPassword").value;
-      let message = document.getElementById("portalMessage");
-      if (user !== "" && password !== "") {
-        message.style.color = "green";
-        message.innerHTML = "Login submitted successfully. Connect this form to the school's database for real accounts.";
-      } else {
-        message.style.color = "red";
-        message.innerHTML = "Please enter your ID and password.";
-      }
+    // ===== ADMISSION FUNCTIONS =====
+    function getAdmissionData() {
+      const name = document.getElementById('admissionName').value || 'Not provided';
+      const dob = document.getElementById('admissionDob').value || 'Not provided';
+      const gender = document.getElementById('admissionGender').value || 'Not provided';
+      const cls = document.getElementById('admissionClass').value || 'Not provided';
+      const prevSchool = document.getElementById('admissionPrevSchool').value || 'Not provided';
+      const parent = document.getElementById('admissionParent').value || 'Not provided';
+      const phone = document.getElementById('admissionPhone').value || 'Not provided';
+      const email = document.getElementById('admissionEmail').value || 'Not provided';
+      const info = document.getElementById('admissionInfo').value || 'None';
+
+      return {
+        name, dob, gender, cls, prevSchool, parent, phone, email, info
+      };
     }
 
-    // ========== CONTACT ==========
-    function sendMessage() {
-      let name = document.getElementById("contactName").value;
-      let email = document.getElementById("contactEmail").value;
-      let message = document.getElementById("contactMessage").value;
-      if (name === "" || email === "" || message === "") {
-        document.getElementById("contactResponse").innerHTML = "Please complete all required fields.";
+    function sendAdmissionEmail() {
+      const data = getAdmissionData();
+      const subject = `Admission Application - ${data.name}`;
+      const body = `
+        NEW ADMISSION APPLICATION
+        -------------------------
+        Student Name: ${data.name}
+        Date of Birth: ${data.dob}
+        Gender: ${data.gender}
+        Class Applying: ${data.cls}
+        Previous School: ${data.prevSchool}
+        Parent/Guardian: ${data.parent}
+        Phone: ${data.phone}
+        Email: ${data.email}
+        Additional Info: ${data.info}
+        -------------------------
+        Sent from Kyabazinga College Kamuli website.
+      `;
+      window.open(`mailto:info@kyabazingacollege.ac.ug?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+      document.getElementById('admissionMessage').innerHTML = '✅ Opening your email client... Please send the message to complete your application.';
+      document.getElementById('admissionMessage').style.color = 'green';
+    }
+
+    function sendAdmissionWhatsApp() {
+      const data = getAdmissionData();
+      const message = `
+        NEW ADMISSION APPLICATION
+        Student: ${data.name}
+        DOB: ${data.dob}
+        Gender: ${data.gender}
+        Class: ${data.cls}
+        Previous School: ${data.prevSchool}
+        Parent: ${data.parent}
+        Phone: ${data.phone}
+        Email: ${data.email}
+        Additional Info: ${data.info}
+      `;
+      const phone = '256750899569';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+      document.getElementById('admissionMessage').innerHTML = '✅ Opening WhatsApp... Please send the message to complete your application.';
+      document.getElementById('admissionMessage').style.color = 'green';
+    }
+
+    // ===== CONTACT FUNCTIONS =====
+    function getContactData() {
+      const name = document.getElementById('contactName').value || 'Not provided';
+      const email = document.getElementById('contactEmail').value || 'Not provided';
+      const subject = document.getElementById('contactSubject').value || 'Message from website';
+      const message = document.getElementById('contactMessage').value || 'Not provided';
+      return { name, email, subject, message };
+    }
+
+    function sendContactEmail() {
+      const data = getContactData();
+      if (data.name === 'Not provided' || data.email === 'Not provided' || data.message === 'Not provided') {
+        document.getElementById('contactResponse').innerHTML = '⚠️ Please fill in your name, email and message.';
+        document.getElementById('contactResponse').style.color = 'red';
         return;
       }
-      document.getElementById("contactResponse").innerHTML = "✅ Thank you. Your message has been submitted.";
+      const body = `
+        Name: ${data.name}
+        Email: ${data.email}
+        Message: ${data.message}
+      `;
+      window.open(`mailto:info@kyabazingacollege.ac.ug?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(body)}`, '_blank');
+      document.getElementById('contactResponse').innerHTML = '✅ Opening your email client... Please send the message.';
+      document.getElementById('contactResponse').style.color = 'green';
     }
 
-    // ========== NEWS SEARCH ==========
+    function sendContactWhatsApp() {
+      const data = getContactData();
+      if (data.name === 'Not provided' || data.message === 'Not provided') {
+        document.getElementById('contactResponse').innerHTML = '⚠️ Please fill in your name and message.';
+        document.getElementById('contactResponse').style.color = 'red';
+        return;
+      }
+      const message = `
+        Name: ${data.name}
+        Email: ${data.email}
+        Message: ${data.message}
+      `;
+      const phone = '256750899569';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+      document.getElementById('contactResponse').innerHTML = '✅ Opening WhatsApp... Please send the message.';
+      document.getElementById('contactResponse').style.color = 'green';
+    }
+
+    // ===== NEWS SEARCH =====
     function searchNews() {
       let search = document.getElementById("newsSearch").value.toLowerCase();
       let cards = document.querySelectorAll(".news-card");
@@ -1407,47 +1246,41 @@
       });
     }
 
-    // ========== ADMIN LOGIN ==========
-    function adminLogin() {
-      let username = document.getElementById("adminUser").value;
-      let password = document.getElementById("adminPassword").value;
-      if (username === "admin" && password === "admin123") {
-        document.getElementById("adminMessage").innerHTML = "✅ Login successful.";
-        document.getElementById("dashboard").style.display = "block";
-        let applications = localStorage.getItem("applications") || 0;
-        document.getElementById("applicationCount").innerText = applications;
-      } else {
-        document.getElementById("adminMessage").innerHTML = "❌ Incorrect username or password.";
-      }
-    }
-
-    function adminLogout() {
-      document.getElementById("dashboard").style.display = "none";
-      document.getElementById("adminUser").value = "";
-      document.getElementById("adminPassword").value = "";
-    }
-
-    // ========== BACK TO TOP ==========
+    // ===== BACK TO TOP =====
     window.onscroll = function() {
       let button = document.getElementById("topBtn");
-      if (document.documentElement.scrollTop > 300) {
-        button.style.display = "block";
-      } else {
-        button.style.display = "none";
-      }
+      if (document.documentElement.scrollTop > 300) button.style.display = "block";
+      else button.style.display = "none";
     };
+    function topFunction() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    // close mobile menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
-      });
+    // ===== INITIALIZE ALL SLIDESHOWS =====
+    document.addEventListener("DOMContentLoaded", function() {
+      // Hero
+      showHeroSlide(0);
+      startHeroTimer();
+      const hero = document.querySelector(".hero");
+      if (hero) {
+        hero.addEventListener("mouseenter", () => clearInterval(heroTimer));
+        hero.addEventListener("mouseleave", startHeroTimer);
+      }
+      // About slideshow
+      initAboutGallery();
+      // Gallery slideshow
+      initGallery();
+      // Pause about on hover
+      const aboutSlideshow = document.querySelector('.about-slideshow');
+      if (aboutSlideshow) {
+        aboutSlideshow.addEventListener('mouseenter', () => clearInterval(aboutTimer));
+        aboutSlideshow.addEventListener('mouseleave', startAboutTimer);
+      }
+      // Pause gallery on hover
+      const gallerySlideshow = document.querySelector('.gallery-slideshow');
+      if (gallerySlideshow) {
+        gallerySlideshow.addEventListener('mouseenter', () => clearInterval(galleryTimer));
+        gallerySlideshow.addEventListener('mouseleave', startGalleryTimer);
+      }
     });
   </script>
-
 </body>
 </html>
